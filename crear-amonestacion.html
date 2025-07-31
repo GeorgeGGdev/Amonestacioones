@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Amonestación - Sistema de Amonestaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Sistema de Amonestaciones</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="main.html" class="back-button">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Volver</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2><i class="fas fa-plus-circle"></i> Crear Nueva Amonestación</h2>
+                    <p>Complete todos los campos para registrar la amonestación</p>
+                </div>
+
+                <form id="amonestacionForm" class="amonestacion-form">
+                    <!-- Información del Profesor -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Información del Profesor</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profesorNombre">Nombre del Profesor *</label>
+                                <input type="text" id="profesorNombre" name="profesorNombre" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del Estudiante -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user-graduate"></i> Información del Estudiante</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="estudianteNombre">Nombre del Estudiante *</label>
+                                <input type="text" id="estudianteNombre" name="estudianteNombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="estudianteGrado">Grado *</label>
+                                <input type="text" id="estudianteGrado" name="estudianteGrado" placeholder="Ej: 10mo grado" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="estudianteCedula">Cédula del Estudiante *</label>
+                                <input type="text" id="estudianteCedula" name="estudianteCedula" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de la Infracción -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Información de la Infracción</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="infraccion">Tipo de Infracción *</label>
+                                <input type="text" id="infraccion" name="infraccion" placeholder="Ej: Falta de respeto, uso de teléfono, etc." required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="comentarios">Comentarios Adicionales</label>
+                                <textarea id="comentarios" name="comentarios" rows="4" placeholder="Describa los detalles de la infracción..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="limpiarFormulario()">
+                            <i class="fas fa-eraser"></i>
+                            Limpiar
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i>
+                            Guardar Amonestación
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Sistema Activo</h4>
+                    <p>Formulario de amonestaciones funcionando</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-clock"></i> Última Actualización</h4>
+                    <p>Hace 2 minutos</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                    <p>Datos protegidos con Firebase</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Configuración de Firebase -->
+    <script type="module" src="firebase-config.js"></script>
+    
+    <!-- Script principal -->
+    <script type="module" src="form-script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Amonestaciones Escolares</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header con logo y título -->
+        <header class="welcome-header">
+            <div class="welcome-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Sistema de Amonestaciones</h1>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="welcome-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">Bienvenido al Sistema de Gestión Disciplinaria</h2>
+                    <p class="hero-subtitle">Una plataforma moderna para la administración eficiente de amonestaciones escolares</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Seguridad</h3>
+                            <p>Protección de datos y confidencialidad garantizada</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Análisis</h3>
+                            <p>Reportes detallados y estadísticas en tiempo real</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Gestión</h3>
+                            <p>Administración integral de estudiantes y personal</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-bell"></i>
+                            <h3>Notificaciones</h3>
+                            <p>Sistema de alertas automáticas y seguimiento</p>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <button class="cta-button" onclick="iniciarSistema()">
+                            <span>Empezar</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Información</h4>
+                    <p>Sistema desarrollado para optimizar la gestión disciplinaria en instituciones educativas</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-cog"></i> Características</h4>
+                    <ul>
+                        <li>Registro digital de amonestaciones</li>
+                        <li>Historial completo de estudiantes</li>
+                        <li>Generación de reportes</li>
+                        <li>Interfaz intuitiva</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-headset"></i> Soporte</h4>
+                    <p>¿Necesitas ayuda? Contacta con nuestro equipo de soporte técnico</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sistema de Amonestaciones Escolares. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function iniciarSistema() {
+            // Redirigir a la página principal del sistema
+            window.location.href = 'main.html';
+        }
+
+        // Animación de entrada para las tarjetas
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html> 

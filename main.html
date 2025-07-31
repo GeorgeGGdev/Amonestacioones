@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Amonestaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header con navegación -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Sistema de Amonestaciones</h1>
+                </div>
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Sección de acción principal -->
+            <section class="main-action-section">
+                <div class="action-container">
+                    <div class="action-header">
+                        <h2>Crear Nueva Amonestación</h2>
+                        <p>Registra una nueva amonestación para un estudiante</p>
+                    </div>
+                    
+                    <div class="actions-grid">
+                        <div class="main-action-card" onclick="crearAmonestacion()">
+                            <div class="action-icon-large">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="action-content-large">
+                                <h3>Crear Amonestación</h3>
+                                <p>Haz clic aquí para registrar una nueva amonestación en el sistema</p>
+                            </div>
+                            <div class="action-arrow-large">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="main-action-card" onclick="verAmonestaciones()">
+                            <div class="action-icon-large">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <div class="action-content-large">
+                                <h3>Ver Amonestaciones</h3>
+                                <p>Consulta y gestiona todas las amonestaciones registradas en el sistema</p>
+                            </div>
+                            <div class="action-arrow-large">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Sistema Activo</h4>
+                    <p>Plataforma funcionando correctamente</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-clock"></i> Última Actualización</h4>
+                    <p>Hace 5 minutos</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                    <p>Sesión segura verificada</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Función para crear amonestación
+        function crearAmonestacion() {
+            window.location.href = 'crear-amonestacion.html';
+        }
+
+        // Función para ver amonestaciones
+        function verAmonestaciones() {
+            window.location.href = 'ver-amonestaciones.html';
+        }
+
+        // Animación de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainCard = document.querySelector('.main-action-card');
+            mainCard.style.animationDelay = '0.3s';
+        });
+
+        // Efecto hover para la tarjeta principal
+        document.querySelector('.main-action-card').addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        document.querySelector('.main-action-card').addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Amonestaciones - Sistema de Amonestaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Sistema de Amonestaciones</h1>
+                </div>
+                <div class="header-actions">
+                    <a href="main.html" class="back-button">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Volver</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="amonestaciones-container">
+                <div class="amonestaciones-header">
+                    <h2><i class="fas fa-list"></i> Lista de Amonestaciones</h2>
+                    <p>Consulta y gestiona todas las amonestaciones registradas</p>
+                </div>
+
+                <!-- Buscador -->
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Buscar por nombre del estudiante..." />
+                        </div>
+                        <button class="btn-primary" onclick="limpiarBusqueda()">
+                            <i class="fas fa-eraser"></i>
+                            Limpiar
+                        </button>
+                    </div>
+                    <div class="search-stats">
+                        <span id="totalAmonestaciones">Total: 0 amonestaciones</span>
+                        <span id="amonestacionesMostradas">Mostrando: 0</span>
+                    </div>
+                </div>
+
+                <!-- Lista de amonestaciones -->
+                <div class="amonestaciones-list" id="amonestacionesList">
+                    <!-- Las amonestaciones se cargarán dinámicamente aquí -->
+                    <div class="loading-message">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Cargando amonestaciones...</p>
+                    </div>
+                </div>
+
+                <!-- Mensaje cuando no hay amonestaciones -->
+                <div class="no-amonestaciones" id="noAmonestaciones" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No hay amonestaciones</h3>
+                    <p>No se han encontrado amonestaciones registradas.</p>
+                    <a href="crear-amonestacion.html" class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Crear Primera Amonestación
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> Sistema Activo</h4>
+                    <p>Visualizador de amonestaciones funcionando</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-clock"></i> Última Actualización</h4>
+                    <p id="ultimaActualizacion">Cargando...</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                    <p>Datos protegidos con Firebase</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="firebase-config.js"></script>
+    
+    <!-- Script principal -->
+    <script type="module" src="amonestaciones-script.js"></script>
+</body>
+</html> 

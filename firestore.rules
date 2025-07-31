@@ -1,0 +1,83 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Reglas para la colección de amonestaciones
+    match /amonestaciones/{amonestacionId} {
+      // Permitir lectura a todos los usuarios autenticados
+      allow read: if request.auth != null;
+      
+      // Permitir escritura solo a usuarios autenticados
+      allow create: if request.auth != null 
+        && request.resource.data.profesorNombre is string
+        && request.resource.data.profesorNombre.size() > 0
+        && request.resource.data.estudianteNombre is string
+        && request.resource.data.estudianteNombre.size() > 0
+        && request.resource.data.estudianteGrado is string
+        && request.resource.data.estudianteGrado.size() > 0
+        && request.resource.data.estudianteCedula is string
+        && request.resource.data.estudianteCedula.size() > 0
+        && request.resource.data.infraccion is string
+        && request.resource.data.infraccion.size() > 0
+        && request.resource.data.fechaCreacion is timestamp
+        && request.resource.data.estado is string
+        && request.resource.data.estado in ['activa', 'inactiva', 'resuelta'];
+      
+      // Permitir actualización solo a usuarios autenticados
+      allow update: if request.auth != null
+        && request.resource.data.profesorNombre is string
+        && request.resource.data.profesorNombre.size() > 0
+        && request.resource.data.estudianteNombre is string
+        && request.resource.data.estudianteNombre.size() > 0
+        && request.resource.data.estudianteGrado is string
+        && request.resource.data.estudianteGrado.size() > 0
+        && request.resource.data.estudianteCedula is string
+        && request.resource.data.estudianteCedula.size() > 0
+        && request.resource.data.infraccion is string
+        && request.resource.data.infraccion.size() > 0;
+      
+      // Permitir eliminación solo a administradores (puedes personalizar esta regla)
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // Reglas para la colección de usuarios (si la necesitas)
+    match /usuarios/{userId} {
+      // Permitir lectura solo al propio usuario
+      allow read: if request.auth != null && request.auth.uid == userId;
+      
+      // Permitir escritura solo al propio usuario
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Reglas para la colección de configuración
+    match /configuracion/{configId} {
+      // Permitir lectura a todos los usuarios autenticados
+      allow read: if request.auth != null;
+      
+      // Permitir escritura solo a administradores
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // Reglas para la colección de reportes
+    match /reportes/{reporteId} {
+      // Permitir lectura a todos los usuarios autenticados
+      allow read: if request.auth != null;
+      
+      // Permitir escritura solo a usuarios autenticados
+      allow write: if request.auth != null;
+    }
+    
+    // Reglas para la colección de test (para verificar conexión)
+    match /test/{testId} {
+      // Permitir lectura y escritura a todos los usuarios autenticados
+      allow read, write: if request.auth != null;
+    }
+    
+    // Regla por defecto: denegar todo lo demás
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 
